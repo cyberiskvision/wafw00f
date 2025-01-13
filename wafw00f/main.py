@@ -144,40 +144,40 @@ class WAFW00F(waftoolsengine):
                     return True
 
             # Testing the status code upon sending a xss attack
-            resp2, xss_url = self.performCheck(self.xssAttack)
-            if resp1.status_code != resp2.status_code:
-                self.log.info('Server returned a different response when a XSS attack vector was tried.')
-                reason = reasons[2]
-                reason += '\r\n'
-                reason += 'Normal response code is "%s",' % resp1.status_code
-                reason += ' while the response code to cross-site scripting attack is "%s"' % resp2.status_code
-                self.knowledge['generic']['reason'] = reason
-                self.knowledge['generic']['found'] = True
-                return xss_url
+            #resp2, xss_url = self.performCheck(self.xssAttack)
+            #if resp1.status_code != resp2.status_code:
+            #    self.log.info('Server returned a different response when a XSS attack vector was tried.')
+            #    reason = reasons[2]
+            #    reason += '\r\n'
+            #    reason += 'Normal response code is "%s",' % resp1.status_code
+            #    reason += ' while the response code to cross-site scripting attack is "%s"' % resp2.status_code
+            #    self.knowledge['generic']['reason'] = reason
+            #    self.knowledge['generic']['found'] = True
+            #    return xss_url
 
             # Testing the status code upon sending a lfi attack
-            resp2, lfi_url = self.performCheck(self.lfiAttack)
-            if resp1.status_code != resp2.status_code:
-                self.log.info('Server returned a different response when a directory traversal was attempted.')
-                reason = reasons[2]
-                reason += '\r\n'
-                reason += 'Normal response code is "%s",' % resp1.status_code
-                reason += ' while the response code to a file inclusion attack is "%s"' % resp2.status_code
-                self.knowledge['generic']['reason'] = reason
-                self.knowledge['generic']['found'] = True
-                return lfi_url
+            #resp2, lfi_url = self.performCheck(self.lfiAttack)
+            #if resp1.status_code != resp2.status_code:
+            #    self.log.info('Server returned a different response when a directory traversal was attempted.')
+            #    reason = reasons[2]
+            #    reason += '\r\n'
+            #    reason += 'Normal response code is "%s",' % resp1.status_code
+            #    reason += ' while the response code to a file inclusion attack is "%s"' % resp2.status_code
+            #    self.knowledge['generic']['reason'] = reason
+            #    self.knowledge['generic']['found'] = True
+            #    return lfi_url
 
             # Testing the status code upon sending a sqli attack
-            resp2, sqli_url = self.performCheck(self.sqliAttack)
-            if resp1.status_code != resp2.status_code:
-                self.log.info('Server returned a different response when a SQLi was attempted.')
-                reason = reasons[2]
-                reason += '\r\n'
-                reason += 'Normal response code is "%s",' % resp1.status_code
-                reason += ' while the response code to a SQL injection attack is "%s"' % resp2.status_code
-                self.knowledge['generic']['reason'] = reason
-                self.knowledge['generic']['found'] = True
-                return sqli_url
+            #resp2, sqli_url = self.performCheck(self.sqliAttack)
+            #if resp1.status_code != resp2.status_code:
+            #    self.log.info('Server returned a different response when a SQLi was attempted.')
+            #    reason = reasons[2]
+            #    reason += '\r\n'
+            #    reason += 'Normal response code is "%s",' % resp1.status_code
+            #    reason += ' while the response code to a SQL injection attack is "%s"' % resp2.status_code
+            #    self.knowledge['generic']['reason'] = reason
+            #    self.knowledge['generic']['found'] = True
+            #    return sqli_url
 
             # Checking for the Server header after sending malicious requests
             normalserver, attackresponse_server = '', ''

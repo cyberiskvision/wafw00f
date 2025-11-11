@@ -83,14 +83,7 @@ class WAFW00F(waftoolsengine):
         )
 
     def centralAttack(self):
-        return self.Request(
-            path=self.path,
-            params={
-                create_random_param_name(): self.xsstring,
-                create_random_param_name(): self.sqlistring,
-                create_random_param_name(): self.lfistring
-            }
-        )
+        return self.normalRequest()
 
     def sqliAttack(self):
         return self.Request(
